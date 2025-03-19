@@ -818,12 +818,15 @@ function createProductCard(product) {
     if (stockElement) stockElement.textContent = `Lagersaldo: ${product.stock}`;
     const discountedPriceElement = card.querySelector('.product-discounted-price');
     if (discountedPriceElement) discountedPriceElement.textContent = `Rabatterat pris: $${product.getDiscountedPrice()}`;
+    // 🔹 **Här lägger du till betygsvisning**
+    const ratingElement = card.querySelector('.product-rating');
+    if (ratingElement) ratingElement.textContent = `Betyg: ${product.rating} \u{2B50}`;
     const button = card.querySelector('.add-to-cart');
     if (button) button.addEventListener('click', ()=>{
         product.updateStock(-1);
         if (stockElement) stockElement.textContent = `Lagersaldo: ${product.stock}`;
     });
-    return card;
+    return card; // ✅ Betyget sätts innan detta return
 }
 function displayProducts(products) {
     const container = document.getElementById('product-container');
