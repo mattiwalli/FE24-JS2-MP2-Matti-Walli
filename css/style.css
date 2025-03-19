@@ -1,6 +1,4 @@
-/* styles.css */
 
-/* Grundinställningar */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f9f9f9;
@@ -9,14 +7,12 @@ body {
     color: #333;
   }
   
-  /* Container för produktkorten */
   #product-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
   }
   
-  /* Produktkort */
   .product-card {
     background-color: #fff;
     border-radius: 8px;
@@ -30,14 +26,14 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
-  /* Produktens titel */
+ 
   .product-title {
     font-size: 1.2em;
     margin: 0 0 10px;
     color: #222;
   }
   
-  /* Bilden */
+  
   .product-image {
     width: 100%;
     height: 150px;
@@ -46,14 +42,14 @@ body {
     margin-bottom: 10px;
   }
   
-  /* Lagersaldo och pris */
+  
   .product-stock,
   .product-discounted-price {
     margin: 8px 0;
     font-size: 0.9em;
   }
   
-  /* Knappen för kundvagn */
+ 
   .add-to-cart {
     background-color: #007BFF;
     color: #fff;
@@ -69,3 +65,41 @@ body {
     background-color: #0056b3;
   }
   
+
+
+
+/* Filtreringssektionen */
+#filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+#filters select,
+#filters input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#filters button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+#filters button:hover {
+  background-color: #0056b3;
+}

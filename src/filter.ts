@@ -1,4 +1,4 @@
-// src/filter.ts
+
 import { Product } from './product';
 
 export function filterByCategory(category: string, products: Product[]): Product[] {

@@ -1,4 +1,4 @@
-// src/types.ts
+
 export type ProductData = {
     id: number;
     title: string;

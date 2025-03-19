@@ -705,7 +705,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 init();
 
 },{"./api":"hKNQC","./ui":"5D9k3","./filter":"d9IrV"}],"hKNQC":[function(require,module,exports,__globalThis) {
-// src/api.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "fetchProducts", ()=>fetchProducts);
@@ -713,13 +712,12 @@ var _product = require("./product");
 async function fetchProducts() {
     const response = await fetch('https://dummyjson.com/products');
     const data = await response.json();
-    // Skapa en instans av Product för varje hämtad produkt
+    console.log("Kategorier fr\xe5n API:", data.products.map((p)=>p.category)); // 🛠️ Logga kategorierna
     const products = data.products.map((item)=>new (0, _product.Product)(item));
     return products;
 }
 
 },{"./product":"2luEx","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2luEx":[function(require,module,exports,__globalThis) {
-// src/Product.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Product", ()=>Product);
@@ -733,7 +731,6 @@ class Product {
         this._category = data.category;
         this._rating = data.rating;
     }
-    // Getters
     get title() {
         return this._title;
     }
@@ -755,7 +752,6 @@ class Product {
     get rating() {
         return this._rating;
     }
-    // Metod: Beräkna rabatterat pris
     getDiscountedPrice() {
         const discountedPrice = this._price * (1 - this._discountPercentage / 100);
         return parseFloat(discountedPrice.toFixed(2));
@@ -802,7 +798,6 @@ exports.export = function(dest, destName, get) {
 };
 
 },{}],"5D9k3":[function(require,module,exports,__globalThis) {
-// src/ui.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createProductCard", ()=>createProductCard);
@@ -810,25 +805,19 @@ parcelHelpers.export(exports, "displayProducts", ()=>displayProducts);
 function createProductCard(product) {
     const template = document.getElementById('product-card-template');
     if (!template) throw new Error('Product card template not found');
-    // Klona templaten
     const cardFragment = template.content.cloneNode(true);
     const card = cardFragment.firstElementChild;
-    // Fyll i titel
     const titleElement = card.querySelector('.product-title');
     if (titleElement) titleElement.textContent = product.title;
-    // Fyll i bild
     const imageElement = card.querySelector('.product-image');
     if (imageElement) {
         imageElement.src = product.imageUrl;
         imageElement.alt = product.title;
     }
-    // Fyll i lagersaldo
     const stockElement = card.querySelector('.product-stock');
     if (stockElement) stockElement.textContent = `Lagersaldo: ${product.stock}`;
-    // Fyll i rabatterat pris
     const discountedPriceElement = card.querySelector('.product-discounted-price');
     if (discountedPriceElement) discountedPriceElement.textContent = `Rabatterat pris: $${product.getDiscountedPrice()}`;
-    // Konfigurera knappen för att lägga till produkten i kundvagnen
     const button = card.querySelector('.add-to-cart');
     if (button) button.addEventListener('click', ()=>{
         product.updateStock(-1);
@@ -839,7 +828,7 @@ function createProductCard(product) {
 function displayProducts(products) {
     const container = document.getElementById('product-container');
     if (!container) return;
-    container.innerHTML = ''; // Rensa container för att undvika duplicering
+    container.innerHTML = '';
     products.forEach((product)=>{
         const card = createProductCard(product);
         container.appendChild(card);
@@ -847,7 +836,6 @@ function displayProducts(products) {
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"d9IrV":[function(require,module,exports,__globalThis) {
-// src/filter.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "filterByCategory", ()=>filterByCategory);

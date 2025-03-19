@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- Container för produktkorten -->
-    <div id="product-container">
-      <select id="category-filter">
+   
+    <div id="product-container"></div>
+
+    
+    <select id="category-filter">
         <option value="">Alla kategorier</option>
-        <option value="smartphones">Smartphones</option>
-        <option value="laptops">Laptops</option>
-        <option value="skincare">Hudvård</option>
+        <option value="beauty">Beauty</option>
+        <option value="fragrances">Fragrances</option>
+        <option value="furniture">Furniture</option>
+        <option value="groceries">Groceries</option>
       </select>
+      
 
       <input type="number" id="max-price-filter" placeholder="Maxpris" />
 
@@ -29,7 +33,7 @@
       <button id="apply-filters">Filtrera</button>
     </div>
 
-    <!-- HTML-template för ett produktkort -->
+    
     <template id="product-card-template">
       <div class="product-card">
         <h2 class="product-title"></h2>
@@ -40,7 +44,7 @@
       </div>
     </template>
 
-    <!-- Inkludera TypeScript-bundlet script från Parcel -->
+    
     <script type="module" src="./src/index.ts"></script>
   </body>
 </html>

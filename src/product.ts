@@ -1,8 +1,8 @@
-// src/Product.ts
+
 import { ProductData } from './types';
 
 export class Product {
-  // Privata egenskaper
+ 
   private _title: string;
   private _imageUrl: string;
   private _stock: number;
@@ -21,7 +21,7 @@ export class Product {
     this._rating = data.rating;
   }
 
-  // Getters
+  
   public get title(): string {
     return this._title;
   }
@@ -50,7 +50,7 @@ export class Product {
     return this._rating;
   }
 
-  // Metod: Beräkna rabatterat pris
+ 
   public getDiscountedPrice(): number {
     const discountedPrice: number = this._price * (1 - this._discountPercentage / 100);
     return parseFloat(discountedPrice.toFixed(2));

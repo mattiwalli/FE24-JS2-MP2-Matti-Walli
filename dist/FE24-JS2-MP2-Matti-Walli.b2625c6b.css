@@ -58,4 +58,38 @@ body {
 .add-to-cart:hover {
   background-color: #0056b3;
 }
+
+#filters {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  display: flex;
+  box-shadow: 0 2px 5px #0000001a;
+}
+
+#filters select, #filters input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+#filters button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: background .3s;
+}
+
+#filters button:hover {
+  background-color: #0056b3;
+}
 /*# sourceMappingURL=FE24-JS2-MP2-Matti-Walli.b2625c6b.css.map */
