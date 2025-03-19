@@ -1,0 +1,17 @@
+{
+  "name": "fe24-js2-mp2-matti-walli",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.14.1",
+    "typescript": "^5.8.2"
+  }
+}

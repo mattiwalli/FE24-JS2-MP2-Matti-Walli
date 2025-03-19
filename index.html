@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produkter</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Container för produktkorten -->
+    <div id="product-container">
+      <select id="category-filter">
+        <option value="">Alla kategorier</option>
+        <option value="smartphones">Smartphones</option>
+        <option value="laptops">Laptops</option>
+        <option value="skincare">Hudvård</option>
+      </select>
+
+      <input type="number" id="max-price-filter" placeholder="Maxpris" />
+
+      <select id="sort-filter">
+        <option value="">Sortera efter</option>
+        <option value="price-asc">Pris (lågt till högt)</option>
+        <option value="price-desc">Pris (högt till lågt)</option>
+        <option value="rating-asc">Betyg (lågt till högt)</option>
+        <option value="rating-desc">Betyg (högt till lågt)</option>
+      </select>
+
+      <button id="apply-filters">Filtrera</button>
+    </div>
+
+    <!-- HTML-template för ett produktkort -->
+    <template id="product-card-template">
+      <div class="product-card">
+        <h2 class="product-title"></h2>
+        <img class="product-image" alt="" />
+        <p class="product-stock"></p>
+        <p class="product-discounted-price"></p>
+        <button class="add-to-cart">Lägg i kundvagn</button>
+      </div>
+    </template>
+
+    <!-- Inkludera TypeScript-bundlet script från Parcel -->
+    <script type="module" src="./src/index.ts"></script>
+  </body>
+</html>
