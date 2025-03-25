@@ -56,9 +56,9 @@ export class Product {
     return parseFloat(discountedPrice.toFixed(2));
   }
 
-  // Metod: Uppdatera lagersaldo (minskar med angivet belopp, t.ex. -1 vid köp)
+ 
   public updateStock(amount: number): void {
-    // Säkerställ att saldot inte blir negativt
+    
     if (amount < 0 && Math.abs(amount) > this._stock) {
       this._stock = 0;
     } else {
