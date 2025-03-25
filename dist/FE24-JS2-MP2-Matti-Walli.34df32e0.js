@@ -712,7 +712,7 @@ var _product = require("./product");
 async function fetchProducts() {
     const response = await fetch('https://dummyjson.com/products');
     const data = await response.json();
-    console.log("Kategorier fr\xe5n API:", data.products.map((p)=>p.category)); // 🛠️ Logga kategorierna
+    console.log("Kategorier fr\xe5n API:", data.products.map((p)=>p.category));
     const products = data.products.map((item)=>new (0, _product.Product)(item));
     return products;
 }
@@ -756,9 +756,7 @@ class Product {
         const discountedPrice = this._price * (1 - this._discountPercentage / 100);
         return parseFloat(discountedPrice.toFixed(2));
     }
-    // Metod: Uppdatera lagersaldo (minskar med angivet belopp, t.ex. -1 vid köp)
     updateStock(amount) {
-        // Säkerställ att saldot inte blir negativt
         if (amount < 0 && Math.abs(amount) > this._stock) this._stock = 0;
         else {
             this._stock += amount;
@@ -818,7 +816,6 @@ function createProductCard(product) {
     if (stockElement) stockElement.textContent = `Lagersaldo: ${product.stock}`;
     const discountedPriceElement = card.querySelector('.product-discounted-price');
     if (discountedPriceElement) discountedPriceElement.textContent = `Rabatterat pris: $${product.getDiscountedPrice()}`;
-    // 🔹 **Här lägger du till betygsvisning**
     const ratingElement = card.querySelector('.product-rating');
     if (ratingElement) ratingElement.textContent = `Betyg: ${product.rating} \u{2B50}`;
     const button = card.querySelector('.add-to-cart');
@@ -826,7 +823,7 @@ function createProductCard(product) {
         product.updateStock(-1);
         if (stockElement) stockElement.textContent = `Lagersaldo: ${product.stock}`;
     });
-    return card; // ✅ Betyget sätts innan detta return
+    return card;
 }
 function displayProducts(products) {
     const container = document.getElementById('product-container');
