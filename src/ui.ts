@@ -31,7 +31,6 @@ export function createProductCard(product: Product): HTMLElement {
       discountedPriceElement.textContent = `Rabatterat pris: $${product.getDiscountedPrice()}`;
     }
   
-    // 🔹 **Här lägger du till betygsvisning**
     const ratingElement: HTMLElement | null = card.querySelector('.product-rating');
     if (ratingElement) {
       ratingElement.textContent = `Betyg: ${product.rating} ⭐`;
@@ -47,7 +46,7 @@ export function createProductCard(product: Product): HTMLElement {
       });
     }
   
-    return card; // ✅ Betyget sätts innan detta return
+    return card; 
   }
   
 
